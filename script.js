@@ -17,8 +17,14 @@ function getComputerChoice() {
 
 function playRound(playerSelection, computerSelection) {
     let playerAction = playerSelection.toLowerCase();
-    console.log(playerAction)
+    
+    if (playerAction === "rock" && computerSelection === "Paper") {
+        return "You Lose! Paper beats Rock"
+    } else if (playerAction === "rock" && computerSelection == "Scissors") {
+        return "You Win! Rock beats Scissors"
+    }
 }
 
-console.log(playRound("PApEr", "rock"))
-console.log(getComputerChoice())
+const playerSelection = "rock";
+const computerSelection = getComputerChoice();
+console.log(playRound(playerSelection, computerSelection))
