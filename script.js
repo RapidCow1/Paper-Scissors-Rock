@@ -33,10 +33,10 @@ function playRound(playerSelection, computerSelection) {
     } else if (playerSelection === "paper" && computerSelection === "Scissors") {
         console.log("You Lose! Scissors beats Paper")
         return false
-    } else if (playerSelection === "Scissors" && computerSelection == "Rock") {
+    } else if (playerSelection === "scissors" && computerSelection == "Rock") {
         console.log("You Lose! Rock beats Scissors")
         return false
-    } else if (playerSelection === "Scissors" && computerSelection === "Paper") {
+    } else if (playerSelection === "scissors" && computerSelection === "Paper") {
         console.log("You Win! Scissors beats Paper")
         return true
     } else {
@@ -50,14 +50,32 @@ function game() {
     let playerScore = 0;
     let computerScore = 0;
     
-    while (playerScore != 5 || computerScore != 5) {
+    while (playerScore < 5 && computerScore < 5) {
         const playerSelection = prompt("Paper, Scissors or Rock?");
         const computerSelection = getComputerChoice();
+        console.log(playerScore)
+        console.log(computerScore)
 
         let playerWinner = playRound(playerSelection, computerSelection)
+        if (playerWinner == true) {
+            playerScore++
+        } else if (playerWinner == false) {
+            computerScore++
+        } else {
+            continue
+        }
+    }
 
+    console.log(`Score - Player: ${playerScore} Computer: ${computerScore}`)
+    if (playerScore === 5) {
+        console.log("You are the winner")
+        return
+    } else  {
+        console.log("You are the loser")
+        return
     }
 }
 
 
-console.log(playRound(playerSelection, computerSelection))
+
+game()
