@@ -16,7 +16,9 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
-    
+    let playerAction = playerSelection.toLowerCase();
+    console.log(playerAction)
 }
 
+console.log(playRound("PApEr", "rock"))
 console.log(getComputerChoice())
