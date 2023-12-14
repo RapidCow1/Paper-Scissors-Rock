@@ -1,7 +1,9 @@
+// Randomly generate a number between 1 and 3 inclusive
 function randomNumber() {
     return Math.floor(Math.random() * 3) + 1;
 }
 
+// Randomly returns the computer choice
 function getComputerChoice() {
     let choice = randomNumber();
 
@@ -15,6 +17,7 @@ function getComputerChoice() {
     }
 }
 
+// Function will play a single round of the game
 function playRound(playerSelection, computerSelection) {
     let playerAction = playerSelection.toLowerCase();
     
@@ -30,6 +33,8 @@ function playRound(playerSelection, computerSelection) {
         return "You Lose! Rock beats Scissors"
     } else if (playerSelection === "Scissors" && computerSelection === "Paper") {
         return "You Win! Scissors beats Paper"
+    } else {
+        return "Its a tie!"
     }
 }
 
