@@ -23,50 +23,36 @@ function playRound(playerSelection, computerSelection) {
     
     if (playerAction === "rock" && computerSelection === "Paper") {
         console.log("You Lose! Paper beats Rock")
-        return false
+        computerScore++
     } else if (playerAction === "rock" && computerSelection == "Scissors") {
         console.log("You Win! Rock beats Scissors")
-        return true
+        playerScore++
     } else if (playerAction == "paper" && computerSelection === "Rock") {
         console.log("You Win! Paper beats Rock")
-        return true
+        playerScore++
     } else if (playerSelection === "paper" && computerSelection === "Scissors") {
         console.log("You Lose! Scissors beats Paper")
-        return false
+        computerScore++
     } else if (playerSelection === "scissors" && computerSelection == "Rock") {
         console.log("You Lose! Rock beats Scissors")
-        return false
+        computerScore++
     } else if (playerSelection === "scissors" && computerSelection === "Paper") {
         console.log("You Win! Scissors beats Paper")
-        return true
+        playerScore++
     } else {
         console.log("Its a tie!")
-        return "Tie"
     }
 }
 
-function game() {
-    const round = 0;
-    let playerScore = 0;
-    let computerScore = 0;
-    
+function game() {    
     while (playerScore < 5 && computerScore < 5) {
         const playerSelection = prompt("Paper, Scissors or Rock?");
         const computerSelection = getComputerChoice();
-        console.log(playerScore)
-        console.log(computerScore)
-
-        let playerWinner = playRound(playerSelection, computerSelection)
-        if (playerWinner == true) {
-            playerScore++
-        } else if (playerWinner == false) {
-            computerScore++
-        } else {
-            continue
-        }
+        playRound(playerSelection, computerSelection)
+        console.log(`Score - Player: ${playerScore} Computer: ${computerScore}`)
+        
     }
 
-    console.log(`Score - Player: ${playerScore} Computer: ${computerScore}`)
     if (playerScore === 5) {
         console.log("You are the winner")
         return
@@ -76,6 +62,7 @@ function game() {
     }
 }
 
-
+let playerScore = 0;
+let computerScore = 0;
 
 game()
