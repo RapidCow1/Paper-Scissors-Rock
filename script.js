@@ -9,11 +9,11 @@ function getComputerChoice() {
 
     switch(choice) {
         case 1:
-            return "Paper"
+            return "Paper";
         case 2:
-            return "Scissors"
+            return "Scissors";
         case 3:
-            return "Rock"
+            return "Rock";
     }
 }
 
@@ -22,25 +22,31 @@ function playRound(playerSelection, computerSelection) {
     let playerAction = playerSelection.toLowerCase();
     
     if (playerAction === "rock" && computerSelection === "Paper") {
-        console.log("You Lose! Paper beats Rock")
-        computerScore++
+        console.log("You Lose! Paper beats Rock");
+        computerScore++;
+        updateScores();
     } else if (playerAction === "rock" && computerSelection == "Scissors") {
-        console.log("You Win! Rock beats Scissors")
-        playerScore++
+        console.log("You Win! Rock beats Scissors");
+        playerScore++;
+        updateScores();
     } else if (playerAction == "paper" && computerSelection === "Rock") {
-        console.log("You Win! Paper beats Rock")
-        playerScore++
+        console.log("You Win! Paper beats Rock");
+        playerScore++;
+        updateScores();
     } else if (playerAction === "paper" && computerSelection === "Scissors") {
-        console.log("You Lose! Scissors beats Paper")
-        computerScore++
+        console.log("You Lose! Scissors beats Paper");
+        computerScore++;
+        updateScores();
     } else if (playerAction === "scissors" && computerSelection == "Rock") {
-        console.log("You Lose! Rock beats Scissors")
-        computerScore++
+        console.log("You Lose! Rock beats Scissors");
+        computerScore++;
+        updateScores();
     } else if (playerAction === "scissors" && computerSelection === "Paper") {
-        console.log("You Win! Scissors beats Paper")
-        playerScore++
+        console.log("You Win! Scissors beats Paper");
+        playerScore++;
+        updateScores();
     } else {
-        console.log("Its a tie!")
+        console.log("Its a tie!");
     }
 }
 
@@ -62,6 +68,11 @@ function game() {
     }
 }
 
+function updateScores() {
+    document.querySelector('#playerScore').textContent = playerScore;
+    document.querySelector('#computerScore').textContent = computerScore;
+}
+
 const paperBtn = document.querySelector('#paperBtn');
 paperBtn.addEventListener('click', () => playRound("Paper", getComputerChoice()));
 
@@ -74,4 +85,4 @@ rockBtn.addEventListener('click', () => playRound("Rock", getComputerChoice()));
 let playerScore = 0;
 let computerScore = 0;
 
-game()
+//game()
