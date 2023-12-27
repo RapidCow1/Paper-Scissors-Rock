@@ -49,23 +49,15 @@ function playRound(playerSelection, computerSelection) {
     } else {
         result.textContent = "Its a tie!";
     }
+
+    if (playerScore === 5 || computerScore === 5) gameEnd();
 }
 
-function game() {    
-    while (playerScore < 5 && computerScore < 5) {
-        const playerSelection = prompt("Paper, Scissors or Rock?");
-        const computerSelection = getComputerChoice();
-        playRound(playerSelection, computerSelection)
-        console.log(`Score - Player: ${playerScore} Computer: ${computerScore}`)
-        
-    }
-
+function gameEnd() {
     if (playerScore === 5) {
-        console.log("You are the winner")
-        return
-    } else  {
-        console.log("You are the loser")
-        return
+        alert("You are the winner!")
+    } else {
+        alert("Computer wins!")
     }
 }
 
@@ -85,5 +77,3 @@ rockBtn.addEventListener('click', () => playRound("Rock", getComputerChoice()));
 
 let playerScore = 0;
 let computerScore = 0;
-
-//game()
