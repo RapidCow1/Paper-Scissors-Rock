@@ -20,33 +20,34 @@ function getComputerChoice() {
 // Function will play a single round of the game
 function playRound(playerSelection, computerSelection) {
     let playerAction = playerSelection.toLowerCase();
+    const result = document.querySelector('#roundResult');
     
     if (playerAction === "rock" && computerSelection === "Paper") {
-        console.log("You Lose! Paper beats Rock");
+        result.textContent = "You Lose! Paper beats Rock";
         computerScore++;
         updateScores();
     } else if (playerAction === "rock" && computerSelection == "Scissors") {
-        console.log("You Win! Rock beats Scissors");
+        result.textContent = "You Win! Rock beats Scissors";
         playerScore++;
         updateScores();
     } else if (playerAction == "paper" && computerSelection === "Rock") {
-        console.log("You Win! Paper beats Rock");
+        result.textContent = "You Win! Paper beats Rock";
         playerScore++;
         updateScores();
     } else if (playerAction === "paper" && computerSelection === "Scissors") {
-        console.log("You Lose! Scissors beats Paper");
+        result.textContent = "You Lose! Scissors beats Paper";
         computerScore++;
         updateScores();
     } else if (playerAction === "scissors" && computerSelection == "Rock") {
-        console.log("You Lose! Rock beats Scissors");
+        result.textContent = "You Lose! Rock beats Scissors";
         computerScore++;
         updateScores();
     } else if (playerAction === "scissors" && computerSelection === "Paper") {
-        console.log("You Win! Scissors beats Paper");
+        result.textContent = "You Win! Scissors beats Paper";
         playerScore++;
         updateScores();
     } else {
-        console.log("Its a tie!");
+        result.textContent = "Its a tie!";
     }
 }
 
